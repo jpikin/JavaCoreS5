@@ -9,16 +9,15 @@ public class Backup {
      * Метод копирует все файлы из каталога Files в каталог Backup
      * Если каталог не создан, метод создает его.
      */
-    public static void createBackup() {
+    public static void createBackup() throws IOException {
         File sourceDirectory = new File("./src/main/java/Files/");
         File targetDirectory = new File("./src/main/java/Backup");
 
-        try {
-            FileUtils.copyDirectory(sourceDirectory, targetDirectory);
-            System.out.println("Файлы успешно скопированы.");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        FileUtils.copyDirectory(sourceDirectory, targetDirectory);
+        System.out.println("Файлы успешно скопированы.");
+
+
 
     }
 
