@@ -5,6 +5,10 @@ import java.io.File;
 import java.io.IOException;
 
 public class Backup {
+    /**
+     * Метод копирует все файлы из каталога Files в каталог Backup
+     * Если каталог не создан, метод создает его.
+     */
     public static void createBackup() {
         File sourceDirectory = new File("./src/main/java/Files/");
         File targetDirectory = new File("./src/main/java/Backup");
