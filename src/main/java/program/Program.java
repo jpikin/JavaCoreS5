@@ -26,6 +26,7 @@ public class Program {
     private static final String TO_SEARCH = "GeekBrains";
 
     public static void main(String[] args) throws IOException {
+        createDirectory("./src/main/java/Files");
         System.out.println(generateSymbols(15));
         writeFileContents("./src/main/java/Files/sample01.txt", 35, 3);
         writeFileContents("./src/main/java/Files/sample02.txt", 35, 2);
@@ -45,7 +46,7 @@ public class Program {
             System.out.printf("Файл %s создан\n", fileNames[j]);
         }
 
-        List<String> result = searchMatch(new File("./src"), TO_SEARCH);
+        List<String> result = searchMatch(new File("./src/main/java/Files"), TO_SEARCH);
         for (String s : result) {
             System.out.printf("Файл %s содержит искомое слово '%s'\n", s, TO_SEARCH);
         }
@@ -56,6 +57,14 @@ public class Program {
             e.printStackTrace();
 
         }
+    }
+
+    /**
+     * Метод создает новую папку
+     * @param directory путь и название папки
+     */
+    private static void createDirectory(String directory) {
+        new File(directory).mkdirs();
     }
 
     /**
