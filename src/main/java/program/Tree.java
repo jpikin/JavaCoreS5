@@ -29,18 +29,28 @@ public class Tree {
             return;
 
         int subDirTotal = 0;
+        int subFilesTotal = 0;
         for (int i = 0; i < files.length; i++){
             if (files[i].isDirectory())
             {
                 subDirTotal++;
             }
+            if (files[i].isFile())
+            {
+                subFilesTotal++;
+            }
         }
 
         int subDirCounter = 0;
+        int subFilesCounter = 0;
         for (int i = 0; i < files.length; i++){
             if (files[i].isDirectory())
             {
                 print(files[i], indent, subDirTotal == ++subDirCounter);
+            }
+            if (files[i].isFile())
+            {
+                print(files[i], indent, subFilesTotal == ++subFilesCounter);
             }
         }
 
